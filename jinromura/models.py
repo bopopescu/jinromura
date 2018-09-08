@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Village(models.Model):
     name = models.CharField(max_length=40)
-    people = models.IntegerField
+    people = models.IntegerField(default=0)
     level = models.CharField(max_length=200)
     category = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
@@ -45,6 +45,10 @@ class Village(models.Model):
     wisewolf = models.IntegerField(default=0)
     doctor = models.IntegerField(default=0)
 
+    #objectの名前呼び出された時にnameを出力する
+    def __str__(self):
+        return self.name
+
 
 class Character(models.Model):
     name = models.CharField(max_length=40)
@@ -52,3 +56,7 @@ class Character(models.Model):
     ability = models.CharField(max_length=200)
     condition = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+
+    #objectの名前呼び出された時にnameを出力する
+    def __str__(self):
+        return self.name
