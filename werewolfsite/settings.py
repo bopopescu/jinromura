@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jinromura.apps.JinromuraConfig',
+    #jinromuraのapps.pyのJinromuraconfigを参照させアプリを認識させる
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
