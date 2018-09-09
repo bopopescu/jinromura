@@ -41,6 +41,7 @@ class Village(models.Model):
     bat = models.IntegerField(default=0)
     queen = models.IntegerField(default=0)
     sasaki = models.IntegerField(default=0)
+    fanatic = models.IntegerField(default=0)
     goyoku = models.IntegerField(default=0)
     wisewolf = models.IntegerField(default=0)
     doctor = models.IntegerField(default=0)
