@@ -1,0 +1,10 @@
+<!-- 人狼村の検索画面-->
+<h1>人狼村検索・一覧</h1>
+  <ul>
+    {% for village in village_list %}
+    <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
+    <h2><a href="{% url 'detail' village.id %}">{{ village.name }}</a></h2>
+    <li>難易度：{{ village.level }}</li>
+    <li>人数：{{ village.people }}</li>
+    {% endfor %}
+  </ul>
