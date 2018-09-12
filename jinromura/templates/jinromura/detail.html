@@ -1,8 +1,18 @@
 <!-- 個々の村の詳細画面-->
-<h1>{{ village.name }}</h1>
-<ul>
-  <li>村の名前：{{ village.people }}人</li>
-  <li>難易度：{{ village.level }}</li>
-  <li>説明：{{ village.description }}</li>
-</ul>
-<p><a href="{% url 'index' %}">戻る</a></p>
+<!-- staticfilesのロード-->
+{% load staticfiles %}
+<html>
+  <!-- bootstrapのCSS読み込み-->
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  </head>
+  <body>
+    <h1>{{ village.name }}</h1>
+    <ul>
+      <li>村の名前：{{ village.people }}人</li>
+      <li>難易度：{{ village.level }}</li>
+      <li>説明：{{ village.description }}</li>
+    </ul>
+    <p><a href="{% url 'index' %}">戻る</a></p>
+  </body>
+</html>
