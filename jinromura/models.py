@@ -4,7 +4,7 @@ from django.db import models
 class Village(models.Model):
     name = models.CharField(max_length=40)
     people = models.IntegerField(default=0)
-    level = models.CharField(max_length=200)
+    level = models.IntegerField(default=0)
     category = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     citizen = models.IntegerField(default=0)
