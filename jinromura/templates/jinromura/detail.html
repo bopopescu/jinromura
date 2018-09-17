@@ -1,6 +1,9 @@
 <!-- 個々の村の詳細画面-->
 <!-- staticfilesのロード-->
 {% load staticfiles %}
+<!-- range.pyの組み込みタグの読み込み-->
+{% load range %}
+
 <html>
   <!-- bootstrapのCSS読み込み-->
   <head>
@@ -116,7 +119,7 @@
     <h3>概要</h3>
       <ul>
         <li>村の人数：{{ village.people }}人</li>
-        <li>難易度：{{ village.level }}</li>
+        <li>難易度：{% for value in village.level|range %}★{% endfor %}</li>
         <li>種類：{{ village.category }}</li>
         <li>説明：{{ village.description }}</li>
       </ul>

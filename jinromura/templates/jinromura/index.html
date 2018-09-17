@@ -1,6 +1,9 @@
 <!-- 人狼村の検索画面-->
 <!-- staticfilesのロード-->
 {% load staticfiles %}
+<!-- range.pyの組み込みタグの読み込み-->
+{% load range %}
+
 <html>
   <!-- bootstrapのCSS読み込み-->
   <head>
@@ -12,7 +15,8 @@
       <!-- カード形式で表示-->
       <div class="card" style="width:30rem;">
         <h3 class="card-header">{{ village.name }}</h3>
-        <p class="card-body">難易度：{{ village.level }}
+        <!-- レベルに合わせて星の数を表示する-->
+        <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
           <br>人数：{{ village.people }}</p>
         <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
         <a href="{% url 'detail' village.id %}" class="card-link">村の詳細</a>

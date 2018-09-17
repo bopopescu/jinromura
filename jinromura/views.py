@@ -4,7 +4,6 @@ from .models import Village,Character
 # Create your views here.
 #検索・一覧画面
 def index(request):
-    num = 0
     village_list = Village.objects.all()
     context={'village_list':village_list}
     return render(request, 'jinromura/index.html',context)
