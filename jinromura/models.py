@@ -13,7 +13,6 @@ class Village(models.Model):
     f_teller = models.IntegerField(default=0)
     shaman = models.IntegerField(default=0)
     dspcho = models.IntegerField(default=0)
-    bomber = models.IntegerField(default=0)
     straw_doll = models.IntegerField(default=0)
     fox = models.IntegerField(default=0)
     nekomata = models.IntegerField(default=0)
