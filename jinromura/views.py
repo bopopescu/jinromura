@@ -5,7 +5,7 @@ from . import forms
 # Create your views here.
 #初期検索・一覧画面
 def index(request):
-    #人数順に昇順
+    #人数順に昇順、デフォルト全件取得
     village_list = Village.objects.all().order_by('people')
     context={
     'village_list':village_list,
