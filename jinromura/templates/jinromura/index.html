@@ -10,6 +10,25 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
   </head>
   <body>
+    <form method="get" action="" name="filter_form">
+      <legend>絞り込み条件</legend>
+      <div>
+        <p>人数</p>
+          <input type="checkbox" id="filter_people" value="5">5人
+          <input type="checkbox" id="filter_people" value="6">6人
+          <input type="checkbox" id="filter_people" value="7">7人
+          <input type="checkbox" id="filter_people" value="8">8人
+          <input type="checkbox" id="filter_people" value="9">9人
+          <input type="checkbox" id="filter_people" value="10">10人
+          <input type="checkbox" id="filter_people" value="11">11人
+          <input type="checkbox" id="filter_people" value="12">12人
+          <input type="checkbox" id="filter_people" value="13">13人
+          <input type="checkbox" id="filter_people" value="14">14人
+          <input type="checkbox" id="filter_people" value="15">15人
+      </div>
+      <button id="filter">絞り込み</button>
+
+    </form>
     <div class="well">人狼村検索・一覧</div>
       {% for village in village_list %}
       <!-- カード形式で表示-->
