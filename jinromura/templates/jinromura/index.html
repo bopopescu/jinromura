@@ -13,8 +13,10 @@
     <form method="get" action="" name="filter_form">
       <legend>絞り込み条件</legend>
       <div>
-        <p>人数</p>
-
+        <form method="get" action="">
+            {{ form.people.label }}：
+            {{ form.people }}
+        </form>
       </div>
       <button id="filter">絞り込み</button>
       <hr>
