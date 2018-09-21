@@ -1,8 +1,9 @@
 <!-- 人狼村の検索画面-->
 <!-- staticfilesのロード-->
 {% load staticfiles %}
-<!-- range.pyの組み込みタグの読み込み-->
+<!-- 組み込みタグの読み込み-->
 {% load range %}
+{% load people_filters %}
 
 <html>
   <!-- bootstrapのCSS読み込み-->
@@ -11,36 +12,30 @@
   </head>
   <body>
     <form method="get" action="" name="filter_form">
-      <legend>絞り込み条件</legend>
-      <div>
-        <form method="get" action="">
-            {{ form.people.label }}：
-            {{ form.people }}
-        </form>
-        <form method="get" action="">
-            {{ form.level.label }}：
-            {{ form.level }}
-        </form>
-        <form method="get" action="">
-            {{ form.chara.label }}：
-            {{ form.chara }}
-        </form>
-      </div>
+      <legend>絞り込み条件（人数）</legend>
+      <input type="search" id="filter_name"
+          name="people"
+          placeholder="人数（半角）"
+          value={{ request.GET|people }}>
       <button id="filter">絞り込み</button>
-      <hr>
     </form>
+      <hr>
     <h3>人狼村検索・一覧</h3>
-      {% for village in village_list %}
-      <!-- カード形式で表示-->
-      <div class="card" style="width:30rem;">
-        <h3 class="card-header">{{ village.name }}</h3>
-        <!-- レベルに合わせて星の数を表示する-->
-        <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
-          <br>人数：{{ village.people }}</p>
-        <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
-        <a href="{% url 'detail' village.id %}" class="card-link">村の詳細</a>
-      </div>
-      <br>
-      {% endfor %}
+      {% if village_list is not None %}
+        {% for village in village_list %}
+        <!-- カード形式で表示-->
+        <div class="card" style="width:30rem;">
+          <h3 class="card-header">{{ village.name }}</h3>
+          <!-- レベルに合わせて星の数を表示する-->
+          <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
+            <br>人数：{{ village.people }}</p>
+          <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
+          <a href="{% url 'detail' village.id %}" class="card-link">村の詳細</a>
+        </div>
+        <br>
+        {% endfor %}
+      {% else %}
+        <p>条件に該当する村は見つかりませんでした。</p>
+      {% endif %}
   </body>
 </html>
