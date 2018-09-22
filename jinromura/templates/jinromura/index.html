@@ -12,16 +12,37 @@
   </head>
   <body>
     <form method="get" action="" name="filter_form">
-      <legend>表示条件（人数）</legend>
-      <input type="number" id="filter_name"
-          name="people"
-          value={{ request.GET|people }}>人
+      <legend>表示条件</legend>
+      <p>人数</p>
+      <div>
+        <input type="number" id="filter_people"
+            name="people"
+            value={{ request.GET|people }}>人
+      </div>
+      <p>必須役職（未実装）</p>
+      <div>
+        <input type="checkbox" id="filter_chara"
+            name="chara"
+            value="black_cat">黒猫
+        <input type="checkbox" id="filter_chara"
+            name="chara"
+            value="nekomata">猫又
+        <input type="checkbox" id="filter_chara"
+            name="chara"
+            value="fanatic">狂信
+      </div>
       <button id="filter">表示</button>
     </form>
       <hr>
     <h3>人狼村検索・一覧</h3>
     <!-- クエリが空でないとき一覧表示-->
       {% if village_list %}
+      <h4>検索条件</h4>
+      {% if request.GET|people %}
+      <p>人数：{{request.GET|people}}</p>
+      {% else %}
+      <p>人数：指定なし</p>
+      {% endif %}
         {% for village in village_list %}
         <!-- カード形式で表示-->
         <div class="card" style="width:30rem;">
