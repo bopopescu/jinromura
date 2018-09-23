@@ -23,14 +23,14 @@
       <button id="filter">表示</button>
     </form>
       <hr>
-    <!-- クエリが空でないとき一覧表示-->
-      {% if object_list %}
       <h4>検索条件</h4>
       {% if request.GET|people %}
       <p>人数：{{request.GET|people}}</p>
       {% else %}
       <p>人数：指定なし</p>
       {% endif %}
+      <!-- クエリが空でないとき一覧表示-->
+      {% if object_list %}
         {% for village in object_list %}
         <!-- カード形式で表示-->
         <div class="card" style="width:30rem;">
