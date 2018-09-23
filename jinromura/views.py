@@ -8,6 +8,13 @@ class IndexView(generic.ListView):
     model = Village
     template_name = 'jinromura/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+
+        village_list = self.model.objects.all()
+        context['village_list'] = village_list
+
+        return context
 
     #絞り込みボタンをクリックした時の表示
     def get_queryset(self):
@@ -16,10 +23,12 @@ class IndexView(generic.ListView):
 
         q_people = self.request.GET.get('people')
 
-        #peopleがnullのとき""を返すため
-        if q_people !="":
-            #検索を繰り返す時に全件から絞り込みを行う
-            village_list =self.model.objects.all().order_by('people').filter(people=q_people)
+        #indexの初期表示以外のとき
+        if q_people is not None:
+            #peopleがnullのとき
+            if q_people != "":
+                #検索を繰り返す時に全件から絞り込みを行う
+                village_list =village_list.filter(people=q_people)
 
         return village_list
 
