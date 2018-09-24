@@ -1,7 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Village,Character
 from django.views import generic
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 # Create your views here.
 #初期検索・一覧画面
