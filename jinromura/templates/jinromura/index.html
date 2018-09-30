@@ -10,64 +10,85 @@
   <!-- bootstrapのCSS読み込み-->
   <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <title>jinromura</title>
   </head>
   <body>
-    <h2>人狼村検索・一覧</h2>
-    <form method="get" action="" name="filter_form">
-      <legend>表示条件</legend>
-      <p>人数</p>
-      <div>
-        <input type="number" id="filter_people"
-            name="people"
-            value={{ request.GET|people }}>人
-      </div>
-      <button id="filter">表示</button>
-    </form>
-      <hr>
-      <h4>検索条件</h4>
-      {% if request.GET|people %}
-      <p>人数：{{request.GET|people}}</p>
-      {% else %}
-      <p>人数：指定なし</p>
-      {% endif %}
-      <!-- クエリが空でないとき一覧表示-->
-      {% if object_list %}
-        {% for village in object_list %}
-        <!-- カード形式で表示-->
-        <div class="card" style="width:30rem;">
-          <h3 class="card-header">{{ village.name }}</h3>
-          <!-- レベルに合わせて星の数を表示する-->
-          <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
-            <br>人数：{{ village.people }}</p>
-          <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
-          <a href="{% url 'detail' village.id %}" class="card-link">村の詳細</a>
-        </div>
-        <br>
-        {% endfor %}
-      <!-- クエリが空であるとき一覧表示-->
-      {% else %}
-        <p>条件に該当する村は見つかりませんでした。</p>
-      {% endif %}
-      {% if is_paginated %}
-        <p>{{ page_obj.paginator.num_pages }}ページ中{{ page_obj.number }}ページ目</p>
-        <nav>
-          <ul class="pagination">
-              {% if page_obj.has_previous %}
-                  <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request page_obj.previous_page_number %}">前へ</a></li>
-              {% endif %}
-              {% for link_page in page_obj.paginator.page_range %}
-                  {% if link_page == page_obj.number %}
-                      <li class="page-item active"><span class="page-link" href="#">{{ link_page }}</span></li>
-                  {% else %}
-                      <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request link_page %}">{{ link_page }}</a></li>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+        jinromura 〜人狼村検索・一覧〜
+      </nav>
+    </div><!-- /.container -->
+    <div class="container">
+      <div class="row">
+        <div id="contents" class="col-sm-9">
+          <form method="get" action="" name="filter_form">
+            <legend>表示条件</legend>
+            <p>人数</p>
+            <div>
+              <input type="number" id="filter_people"
+                  name="people"
+                  value={{ request.GET|people }}>人
+            </div>
+            <button class="btn btn-primary" id="filter">表示</button>
+          </form>
+          <hr>
+          <h4>検索条件</h4>
+          {% if request.GET|people %}
+          <p>人数：{{request.GET|people}}</p>
+          {% else %}
+          <p>人数：指定なし</p>
+          {% endif %}
+          <!-- クエリが空でないとき一覧表示-->
+          {% if object_list %}
+            {% for village in object_list %}
+            <!-- カード形式で表示-->
+            <div class="card" style="width:45rem;">
+              <h3 class="card-header">{{ village.name }}</h3>
+              <!-- レベルに合わせて星の数を表示する-->
+              <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
+                <br>人数：{{ village.people }}
+                <br>{{ village.description|truncatechars:35 }}
+              </p>
+              <!-- aタグのhref要素でdetailのビューでvillage.idを引数に指定 -->
+              <a href="{% url 'detail' village.id %}" class="card-link">村の詳細</a>
+            </div>
+            <br>
+            {% endfor %}
+          <!-- クエリが空であるとき一覧表示-->
+          {% else %}
+            <p>条件に該当する村は見つかりませんでした。</p>
+          {% endif %}
+          {% if is_paginated %}
+            <p>{{ page_obj.paginator.num_pages }}ページ中{{ page_obj.number }}ページ目</p>
+            <nav>
+              <ul class="pagination">
+                  {% if page_obj.has_previous %}
+                      <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request page_obj.previous_page_number %}">前へ</a></li>
                   {% endif %}
-              {% endfor %}
+                  {% for link_page in page_obj.paginator.page_range %}
+                      {% if link_page == page_obj.number %}
+                          <li class="page-item active"><span class="page-link" href="#">{{ link_page }}</span></li>
+                      {% else %}
+                          <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request link_page %}">{{ link_page }}</a></li>
+                      {% endif %}
+                  {% endfor %}
 
-              {% if page_obj.has_next %}
-                  <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request page_obj.next_page_number %}">次へ</a></li>
-              {% endif %}
-          </ul>
-        </nav>
-    {% endif %}
+                  {% if page_obj.has_next %}
+                      <li class="page-item"><a class="page-link" href="{% url 'index' %}?{% query_pagination request page_obj.next_page_number %}">次へ</a></li>
+                  {% endif %}
+              </ul>
+            </nav>
+            {% endif %}
+          </div>
+        <div class="col-sm-3">
+          <h3>本サイトについて</h3>
+          <p>
+            本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
+            現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
+          </p>
+          <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
+
+        </div>
+      </div>
     </body>
 </html>

@@ -10,119 +10,137 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
   </head>
   <body>
-    <h1>{{ village.name }}</h1>
-    <h3>キャラ構成</h3>
-      <table class="table table-striped table-bordered" style="width:50rem;">
-        <thead>
-          <th>役職</th>
-          <th>人数</th>
-          <th>役職</th>
-          <th>人数</th>
-          <th>役職</th>
-          <th>人数</th>
-          <th>役職</th>
-          <th>人数</th>
-          <th>役職</th>
-          <th>人数</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>市民</td>
-            <td>{{village.citizen}}</td>
-            <td>人狼</td>
-            <td>{{village.werewolf}}</td>
-            <td>狩人</td>
-            <td>{{village.hunter}}</td>
-            <td>占い師</td>
-            <td>{{village.f_teller}}</td>
-            <td>霊能力者</td>
-            <td>{{village.shaman}}</td>
-          </tr>
-          <tr>
-            <td>狂人</td>
-            <td>{{village.dspcho}}</td>
-            <td>藁人形</td>
-            <td>{{village.straw_doll}}</td>
-            <td>妖狐</td>
-            <td>{{village.fox}}</td>
-            <td>猫又</td>
-            <td>{{village.nekomata}}</td>
-            <td>黒猫</td>
-            <td>{{village.black_cat}}</td>
-          </tr>
-          <tr>
-            <td>怪盗</td>
-            <td>{{village.thief}}</td>
-            <td>サイコ</td>
-            <td>{{village.psyco}}</td>
-            <td>殉教者</td>
-            <td>{{village.martydom}}</td>
-            <td>パン屋</td>
-            <td>{{village.bakery}}</td>
-            <td>市長</td>
-            <td>{{village.mayor}}</td>
-          </tr>
-          <tr>
-            <td>罠師</td>
-            <td>{{village.trap_nurses}}</td>
-            <td>大狼</td>
-            <td>{{village.big_wolf}}</td>
-            <td>逃亡者</td>
-            <td>{{village.fugitive}}</td>
-            <td>ゾンビ</td>
-            <td>{{village.zombi}}</td>
-            <td>てるてる坊主</td>
-            <td>{{village.teruteru}}</td>
-          </tr>
-          <tr>
-            <td>賢者</td>
-            <td>{{village.wiseman}}</td>
-            <td>奴隷</td>
-            <td>{{village.slave}}</td>
-            <td>貴族</td>
-            <td>{{village.aristcracy}}</td>
-            <td>狼少年</td>
-            <td>{{village.zombi}}</td>
-            <td>サンタ</td>
-            <td>{{village.santa}}</td>
-          </tr>
-          <tr>
-            <td>豚男</td>
-            <td>{{village.pigman}}</td>
-            <td>呪われし者</td>
-            <td>{{village.cursed}}</td>
-            <td>独裁者</td>
-            <td>{{village.dictator}}</td>
-            <td>暗殺者</td>
-            <td>{{village.assassin}}</td>
-            <td>妖術師</td>
-            <td>{{village.sorcerer}}</td>
-          </tr>
-          <tr>
-            <td>コウモリ</td>
-            <td>{{village.bat}}</td>
-            <td>ささやく狂人</td>
-            <td>{{village.sasaki}}</td>
-            <td>狂信者</td>
-            <td>{{village.fanatic}}</td>
-            <td>強欲な人狼</td>
-            <td>{{village.goyoku}}</td>
-            <td>賢狼</td>
-            <td>{{village.wisewolf}}</td>
-          </tr>
-          <tr>
-            <td>医者</td>
-            <td>{{village.doctor}}</td>
-          </tr>
-        </tbdoy>
-      </table>
-    <h3>概要</h3>
-      <ul>
-        <li>村の人数：{{ village.people }}人</li>
-        <li>難易度：{% for value in village.level|range %}★{% endfor %}</li>
-        <li>種類：{{ village.category }}</li>
-        <li>説明：{{ village.description }}</li>
-      </ul>
-    <p><a href="{% url 'index' %}">トップに戻る</a></p>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+        jinromura 〜人狼村検索・一覧〜
+      </nav>
+    </div><!-- /.container -->
+    <div class="container">
+      <div class="row">
+        <div id="contents" class="col-sm-9">
+        <h1>{{ village.name }}</h1>
+        <h3>キャラ構成</h3>
+          <table class="table table-striped table-bordered" style="width:50rem;">
+            <thead>
+              <th>役職</th>
+              <th>人数</th>
+              <th>役職</th>
+              <th>人数</th>
+              <th>役職</th>
+              <th>人数</th>
+              <th>役職</th>
+              <th>人数</th>
+              <th>役職</th>
+              <th>人数</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>市民</td>
+                <td>{{village.citizen}}</td>
+                <td>人狼</td>
+                <td>{{village.werewolf}}</td>
+                <td>狩人</td>
+                <td>{{village.hunter}}</td>
+                <td>占い師</td>
+                <td>{{village.f_teller}}</td>
+                <td>霊能力者</td>
+                <td>{{village.shaman}}</td>
+              </tr>
+              <tr>
+                <td>狂人</td>
+                <td>{{village.dspcho}}</td>
+                <td>藁人形</td>
+                <td>{{village.straw_doll}}</td>
+                <td>妖狐</td>
+                <td>{{village.fox}}</td>
+                <td>猫又</td>
+                <td>{{village.nekomata}}</td>
+                <td>黒猫</td>
+                <td>{{village.black_cat}}</td>
+              </tr>
+              <tr>
+                <td>怪盗</td>
+                <td>{{village.thief}}</td>
+                <td>サイコ</td>
+                <td>{{village.psyco}}</td>
+                <td>殉教者</td>
+                <td>{{village.martydom}}</td>
+                <td>パン屋</td>
+                <td>{{village.bakery}}</td>
+                <td>市長</td>
+                <td>{{village.mayor}}</td>
+              </tr>
+              <tr>
+                <td>罠師</td>
+                <td>{{village.trap_nurses}}</td>
+                <td>大狼</td>
+                <td>{{village.big_wolf}}</td>
+                <td>逃亡者</td>
+                <td>{{village.fugitive}}</td>
+                <td>ゾンビ</td>
+                <td>{{village.zombi}}</td>
+                <td>てるてる坊主</td>
+                <td>{{village.teruteru}}</td>
+              </tr>
+              <tr>
+                <td>賢者</td>
+                <td>{{village.wiseman}}</td>
+                <td>奴隷</td>
+                <td>{{village.slave}}</td>
+                <td>貴族</td>
+                <td>{{village.aristcracy}}</td>
+                <td>狼少年</td>
+                <td>{{village.zombi}}</td>
+                <td>サンタ</td>
+                <td>{{village.santa}}</td>
+              </tr>
+              <tr>
+                <td>豚男</td>
+                <td>{{village.pigman}}</td>
+                <td>呪われし者</td>
+                <td>{{village.cursed}}</td>
+                <td>独裁者</td>
+                <td>{{village.dictator}}</td>
+                <td>暗殺者</td>
+                <td>{{village.assassin}}</td>
+                <td>妖術師</td>
+                <td>{{village.sorcerer}}</td>
+              </tr>
+              <tr>
+                <td>コウモリ</td>
+                <td>{{village.bat}}</td>
+                <td>ささやく狂人</td>
+                <td>{{village.sasaki}}</td>
+                <td>狂信者</td>
+                <td>{{village.fanatic}}</td>
+                <td>強欲な人狼</td>
+                <td>{{village.goyoku}}</td>
+                <td>賢狼</td>
+                <td>{{village.wisewolf}}</td>
+              </tr>
+              <tr>
+                <td>医者</td>
+                <td>{{village.doctor}}</td>
+              </tr>
+            </tbdoy>
+          </table>
+        <h3>概要</h3>
+          <ul>
+            <li>村の人数：{{ village.people }}人</li>
+            <li>難易度：{% for value in village.level|range %}★{% endfor %}</li>
+            <li>種類：{{ village.category }}</li>
+            <li>説明：{{ village.description }}</li>
+          </ul>
+          <a class="btn btn-primary" role="button" href="{% url 'index' %}">トップに戻る</a>
+        </div>
+        <div class="col-sm-3">
+          <h3>本サイトについて</h3>
+          <p>
+            本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
+            現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
+          </p>
+          <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
+        </div>
+      </div>
   </body>
 </html>
