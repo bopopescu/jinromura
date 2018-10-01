@@ -22,7 +22,7 @@ class Village(models.Model):
     psyco = models.IntegerField('サイコ',default=0)
     martydom = models.IntegerField('殉教者',default=0)
     bakery = models.IntegerField('パン屋',default=0)
-    mayor = models.IntegerField('市民',default=0)
+    mayor = models.IntegerField('市長',default=0)
     trap_nurses = models.IntegerField('罠師',default=0)
     big_wolf = models.IntegerField('大狼',default=0)
     fugitive = models.IntegerField('逃亡者',default=0)
@@ -44,6 +44,7 @@ class Village(models.Model):
     fanatic = models.IntegerField('狂信者',default=0)
     goyoku = models.IntegerField('強欲な人狼',default=0)
     wisewolf = models.IntegerField('賢狼',default=0)
+    noisywolf = models.IntegerField('饒舌な人狼',default=0)
     doctor = models.IntegerField('医者',default=0)
 
     #objectの名前呼び出された時にnameを出力する

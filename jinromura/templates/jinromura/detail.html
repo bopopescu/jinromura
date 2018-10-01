@@ -1,6 +1,8 @@
 <!-- 個々の村の詳細画面-->
 <!-- staticfilesのロード-->
 {% load staticfiles %}
+<!-- 画像ファイルのロード-->
+{% load static %}
 <!-- range.pyの組み込みタグの読み込み-->
 {% load range %}
 
@@ -30,8 +32,6 @@
               <th>人数</th>
               <th>役職</th>
               <th>人数</th>
-              <th>役職</th>
-              <th>人数</th>
             </thead>
             <tbody>
               <tr>
@@ -43,36 +43,38 @@
                 <td>{{village.hunter}}</td>
                 <td>占い師</td>
                 <td>{{village.f_teller}}</td>
-                <td>霊能力者</td>
-                <td>{{village.shaman}}</td>
               </tr>
               <tr>
+                <td>霊能力者</td>
+                <td>{{village.shaman}}</td>
                 <td>狂人</td>
                 <td>{{village.dspcho}}</td>
                 <td>藁人形</td>
                 <td>{{village.straw_doll}}</td>
                 <td>妖狐</td>
                 <td>{{village.fox}}</td>
+              </tr>
+              <tr>
                 <td>猫又</td>
                 <td>{{village.nekomata}}</td>
                 <td>黒猫</td>
                 <td>{{village.black_cat}}</td>
-              </tr>
-              <tr>
                 <td>怪盗</td>
                 <td>{{village.thief}}</td>
                 <td>サイコ</td>
                 <td>{{village.psyco}}</td>
+              </tr>
+              <tr>
                 <td>殉教者</td>
                 <td>{{village.martydom}}</td>
                 <td>パン屋</td>
                 <td>{{village.bakery}}</td>
                 <td>市長</td>
                 <td>{{village.mayor}}</td>
-              </tr>
-              <tr>
                 <td>罠師</td>
                 <td>{{village.trap_nurses}}</td>
+              </tr>
+              <tr>
                 <td>大狼</td>
                 <td>{{village.big_wolf}}</td>
                 <td>逃亡者</td>
@@ -91,32 +93,36 @@
                 <td>{{village.aristcracy}}</td>
                 <td>狼少年</td>
                 <td>{{village.zombi}}</td>
-                <td>サンタ</td>
-                <td>{{village.santa}}</td>
               </tr>
               <tr>
+                <td>サンタ</td>
+                <td>{{village.santa}}</td>
                 <td>豚男</td>
                 <td>{{village.pigman}}</td>
                 <td>呪われし者</td>
                 <td>{{village.cursed}}</td>
                 <td>独裁者</td>
                 <td>{{village.dictator}}</td>
+              </tr>
+              <tr>
                 <td>暗殺者</td>
                 <td>{{village.assassin}}</td>
                 <td>妖術師</td>
                 <td>{{village.sorcerer}}</td>
-              </tr>
-              <tr>
                 <td>コウモリ</td>
                 <td>{{village.bat}}</td>
                 <td>ささやく狂人</td>
                 <td>{{village.sasaki}}</td>
+              </tr>
+              <tr>
                 <td>狂信者</td>
                 <td>{{village.fanatic}}</td>
                 <td>強欲な人狼</td>
                 <td>{{village.goyoku}}</td>
                 <td>賢狼</td>
                 <td>{{village.wisewolf}}</td>
+                <td>饒舌な人狼</td>
+                <td>{{village.noisywolf}}</td>
               </tr>
               <tr>
                 <td>医者</td>
@@ -134,7 +140,11 @@
           <a class="btn btn-primary" role="button" href="{% url 'index' %}">トップに戻る</a>
         </div>
         <div class="col-sm-3">
+          <br>
           <h3>本サイトについて</h3>
+          <br>
+          <img src="{% static "img/werewolf.jpg" %}" alt="Werewolf image">
+          <br>
           <p>
             本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
             現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
