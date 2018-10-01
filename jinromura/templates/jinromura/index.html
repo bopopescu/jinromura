@@ -44,7 +44,7 @@
           {% if object_list %}
             {% for village in object_list %}
             <!-- カード形式で表示-->
-            <div class="card" style="width:45rem;">
+            <div class="card" style="width:40rem;">
               <h3 class="card-header">{{ village.name }}</h3>
               <!-- レベルに合わせて星の数を表示する-->
               <p class="card-body">難易度：{% for value in village.level|range %}★{% endfor %}
