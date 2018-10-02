@@ -22,7 +22,7 @@ SECRET_KEY = 'un*l5z!d!vtd=u@or(&tn4sds^rx#u%zyld5_3#c*uyik$hd58'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,3 +122,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
