@@ -19,7 +19,7 @@
     </div><!-- /.container -->
     <div class="container">
       <div class="row">
-        <div id="contents" class="col-sm-9">
+        <div id="contents">
         <h1>{{ village.name }}</h1>
         <h3>キャラ構成</h3>
           <table class="table table-striped table-bordered" style="width:50rem;">
@@ -139,17 +139,18 @@
           </ul>
           <a class="btn btn-primary" role="button" href="{% url 'index' %}">トップに戻る</a>
         </div>
-        <div class="col-sm-3">
-          <br>
-          <h3>当サイトについて</h3>
-          <br>
-          <img src="{% static "img/werewolf.jpg" %}" alt="Werewolf image">
-          <br>
-          <p>
-            本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
-            現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
-          </p>
-          <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
+        <div>
+          <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+            <h3>当サイトについて</h3>
+            <br>
+            <img src="{% static "img/werewolf.jpg" %}" alt="Werewolf image">
+            <br>
+            <p>
+              本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
+              現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
+            </p>
+            <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
+          </nav>
         </div>
       </div>
   </body>

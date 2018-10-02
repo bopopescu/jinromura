@@ -22,7 +22,7 @@
     </div><!-- /.container -->
     <div class="container">
       <div class="row">
-        <div id="contents" class="col-sm-9">
+        <div id="contents">
           <form method="get" action="" name="filter_form">
             <legend>表示条件</legend>
             <p>人数</p>
@@ -82,17 +82,19 @@
             </nav>
             {% endif %}
           </div>
-        <div class="col-sm-3">
-          <h3>本サイトについて</h3>
-          <br>
-          <img src="{% static "img/werewolf.jpg" %}" alt="Werewolf image">
-          <br>
-          <p>
-            本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
-            現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
-          </p>
-          <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
-        </div>
+          <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+              <h3>当サイトについて</h3>
+              <br>
+              <img src="{% static "img/werewolf.jpg" %}" alt="Werewolf image">
+              <br>
+              <p>
+                本サイトは人狼ジャッジメントをする際に、悩みがちな役職村の構成を提案してくれるWebサイトになります。
+                現在のところ、人数に合わせて検索できます。今後検索の機能を増やしていく予定です。
+              </p>
+              <a class="btn btn-primary" href="https://takaxtech.com/">管理人のブログ</a>
+            </nav>
+          </div>
       </div>
     </body>
 </html>
