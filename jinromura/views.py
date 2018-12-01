@@ -32,7 +32,7 @@ class IndexView(generic.ListView):
 
             context['village_list']= object_list
 
-        return object_list
+        return context
 
 class DetailView(generic.DetailView):
     model = Village
