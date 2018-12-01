@@ -12,9 +12,9 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         #人数順に昇順ソート
-        object_list = self.model.objects.all().order_by('people')
+        context['village_list']= self.model.objects.all().order_by('people')
 
-        return object_list
+        return context
 
     #絞り込みボタンをクリックした時の表示
     def get_queryset(self):
@@ -29,6 +29,8 @@ class IndexView(generic.ListView):
             if q_people != "":
                 #検索を繰り返す時に全件から絞り込みを行う
                 object_list =object_list.filter(people=q_people)
+
+            context['village_list']= object_list
 
         return object_list
 
