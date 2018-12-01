@@ -30,9 +30,7 @@ class IndexView(generic.ListView):
                 #検索を繰り返す時に全件から絞り込みを行う
                 object_list =object_list.filter(people=q_people)
 
-            context['village_list']= object_list
-
-        return context
+        return object_list
 
 class DetailView(generic.DetailView):
     model = Village
