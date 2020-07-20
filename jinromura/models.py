@@ -29,7 +29,7 @@ class Village(models.Model):
     zombi = models.IntegerField('ゾンビ',default=0)
     teruteru = models.IntegerField('てるてる坊主',default=0)
     wiseman = models.IntegerField('賢者',default=0)
-    slave = models.IntegerField('奴隷',default=0)
+    subordinate = models.IntegerField('奴隷',default=0)
     aristcracy = models.IntegerField('貴族',default=0)
     wolfboy = models.IntegerField('狼少年',default=0)
     santa = models.IntegerField('サンタ',default=0)

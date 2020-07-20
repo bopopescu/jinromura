@@ -187,7 +187,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='village',
-            name='slave',
+            name='subordinate',
             field=models.IntegerField(default=0, verbose_name='奴隷'),
         ),
         migrations.AlterField(

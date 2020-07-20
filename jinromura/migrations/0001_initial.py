@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('zombi', models.IntegerField(default=0)),
                 ('teruteru', models.IntegerField(default=0)),
                 ('wiseman', models.IntegerField(default=0)),
-                ('slave', models.IntegerField(default=0)),
+                ('subordinate', models.IntegerField(default=0)),
                 ('aristcracy', models.IntegerField(default=0)),
                 ('wolfboy', models.IntegerField(default=0)),
                 ('santa', models.IntegerField(default=0)),
